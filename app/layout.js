@@ -1,9 +1,12 @@
-
 import "./globals.css";
 
 export const metadata = {
   title: "Topiko | Digital Business Solutions",
   description: "Topiko helps businesses build their digital identity.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }) {
