@@ -6,6 +6,7 @@ import PricingCard from "@/components/PricingCard";
 import Navbar from "../../components/navbar";
 import FeatureCard from "@/components/FeatureCard";
 import VisitButton from "@/components/VisitButton";
+import SolutionCard from "@/components/SolutionCard";
 import LottieWithImages from "../../components/LottieWithImages";
 import tailorcard from "../../public/assets/images/tailorcard.svg";
 import personalcard from "../../public/assets/images/personalcard.svg";
@@ -340,28 +341,37 @@ const TopikoPage = () => {
         </div>
       </section>
 
-      <section id="solutions" className="bg-[#F4F5F8] py-20 text-center">
-        <div className=" mx-auto px-6">
-          <h2 className="text-[#0E091F] font-bold text-[32px] md:text-[52px] mb-4">Solutions for Every Stage of Growth</h2>
-          <p className="text-[#383247] text-[18px] leading-[28px] mb-12 max-w-[800px] mx-auto">From your first online launch to full-scale enterprise operations, <strong> Topiko grows with you.</strong></p>
+     <section id="solutions" className="bg-[#F4F5F8] py-20 text-center">
+  <div className="mx-auto px-6">
+    <h2 className="text-[#0E091F] font-bold text-[32px] md:text-[52px] mb-4">
+      Solutions for Every Stage of Growth
+    </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cards.map((card, index) => (
-              <FeatureCard
-                key={index}
-                {...card}
-                showButtons={true}
-                learnMoreLink="#"
-                visitLabel={`Visit ${card.button_title}`}
-                isOn={onStates[index]}
-                onToggle={() => handleToggles(index)}
-                iconOn={whitescroll.src}
-                iconOff={blackscroll.src}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    <p className="text-[#383247] text-[18px] leading-[28px] mb-12 max-w-[800px] mx-auto">
+      From your first online launch to full-scale enterprise operations,
+      <strong> Topiko grows with you.</strong>
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {cards.map((card, index) => (
+        <SolutionCard
+          key={index}
+          image={card.image}
+          title={card.title}
+          description={card.description}
+          showButtons={true}
+          learnMoreLink="#"
+          visitLabel={`Visit ${card.button_title}`}
+          isOn={onStates[index]}
+          onToggle={() => handleToggles(index)}
+          iconOn={whitescroll.src}
+          iconOff={blackscroll.src}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
 
       <section id="stories" className="bg-white py-24 relative overflow-hidden text-center">
         <div className="mx-auto px-6 ">
@@ -509,12 +519,26 @@ const TopikoPage = () => {
           ))}
         </div>
 
-        <div className="mt-16">
-          <h4 className="font-['Anek_Latin'] font-semibold text-[22px]">Still have a question?</h4>
-          <p className="font-['Inter'] text-white/80 mt-2 mb-6">Contact us! We will be happy to help you</p>
+  <div className="mt-16 flex flex-col items-center">
+  <h4 className="font-['Anek_Latin'] font-semibold text-[22px]">
+    Still have a question?
+  </h4>
 
-          <VisitButton label="Request Demo" isOn={onStates[10]} onClick={() => handleToggles(10)} iconOn={whitescroll.src} iconOff={blackscroll.src} />
-        </div>
+  <p className="font-['Inter'] text-white/80 mt-2 mb-6">
+    Contact us! We will be happy to help you
+  </p>
+
+  <div className="flex justify-center">
+    <VisitButton
+      label="Request Demo"
+      isOn={onStates[10]}
+      onClick={() => handleToggles(10)}
+      iconOn={whitescroll.src}
+      iconOff={blackscroll.src}
+    />
+  </div>
+</div>
+
       </section>
 
       
