@@ -1,7 +1,7 @@
 // src/components/LottieWithImages.jsx
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import animationData from "../public/assets/json/comp2.json";
+import animationData from "../public/assets/comp2.json";
 
 const LottieWithImages = ({
   size = 500,
@@ -42,7 +42,18 @@ const LottieWithImages = ({
 
   return (
     <div
-     
+      style={{
+        width: size,
+        height: size,
+        marginRight:"20px",
+        
+        borderRadius: "50%", // circular clip
+        overflow: "hidden",  // crop map to circle
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+       
+      }}
     >
       <div
         ref={containerRef}
