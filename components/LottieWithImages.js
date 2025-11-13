@@ -1,7 +1,7 @@
 // src/components/LottieWithImages.jsx
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import animationData from "../public/assets/comp2.json";
+
 
 const LottieWithImages = ({
   size = 500,
@@ -19,18 +19,19 @@ const LottieWithImages = ({
       animRef.current = null;
     }
 
-    animRef.current = lottie.loadAnimation({
-      container: containerRef.current,
-      renderer: "canvas", // "canvas" supports matte effects, but we’ll clip with CSS
-      loop,
-      autoplay,
-      animationData,
-      assetsPath: "/images/",
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid meet",
-        clearCanvas: true,
-      },
-    });
+   animRef.current = lottie.loadAnimation({
+  container: containerRef.current,
+  renderer: "canvas",
+  loop,
+  autoplay,
+  path: "/assets/comp2.json",  // <-- Correct for production
+  assetsPath: "/assets/images/", // <-- Update this to your real image folder
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid meet",
+    clearCanvas: true,
+  },
+});
+
 
     return () => {
       if (animRef.current) {
