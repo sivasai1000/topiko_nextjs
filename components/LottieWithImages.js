@@ -2,9 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 
-
 const LottieWithImages = ({
-  size = 500,
   loop = true,
   autoplay = true,
 }) => {
@@ -19,19 +17,18 @@ const LottieWithImages = ({
       animRef.current = null;
     }
 
-   animRef.current = lottie.loadAnimation({
-  container: containerRef.current,
-  renderer: "canvas",
-  loop,
-  autoplay,
-  path: "/assets/comp2.json",  // <-- Correct for production
-  assetsPath: "/assets/images/", // <-- Update this to your real image folder
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid meet",
-    clearCanvas: true,
-  },
-});
-
+    animRef.current = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: "canvas",
+      loop,
+      autoplay,
+      path: "/assets/comp2.json",
+      assetsPath: "/assets/images/",
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid meet",
+        clearCanvas: true,
+      },
+    });
 
     return () => {
       if (animRef.current) {
@@ -43,26 +40,17 @@ const LottieWithImages = ({
 
   return (
     <div
-      style={{
-        width: size,
-        height: size,
-        marginRight:"20px",
-        
-        borderRadius: "50%", // circular clip
-        overflow: "hidden",  // crop map to circle
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-       
-      }}
+      className="
+        rounded-full overflow-hidden
+        flex items-center justify-center
+        w-[200px] h-[200px]
+        sm:w-[260px] sm:h-[260px]
+        md:w-[340px] md:h-[340px]
+        lg:w-[400px] lg:h-[400px]
+        xl:w-[500px] xl:h-[500px]
+      "
     >
-      <div
-        ref={containerRef}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      />
+      <div ref={containerRef} className="w-full h-full" />
     </div>
   );
 };
