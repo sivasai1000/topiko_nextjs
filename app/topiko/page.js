@@ -519,12 +519,26 @@ const TopikoPage = () => {
           ))}
         </div>
 
-        <div className="mt-16">
-          <h4 className="font-['Anek_Latin'] font-semibold text-[22px]">Still have a question?</h4>
-          <p className="font-['Inter'] text-white/80 mt-2 mb-6">Contact us! We will be happy to help you</p>
+  <div className="mt-16 flex flex-col items-center">
+  <h4 className="font-['Anek_Latin'] font-semibold text-[22px]">
+    Still have a question?
+  </h4>
 
-          <VisitButton label="Request Demo" isOn={onStates[10]} onClick={() => handleToggles(10)} iconOn={whitescroll.src} iconOff={blackscroll.src} />
-        </div>
+  <p className="font-['Inter'] text-white/80 mt-2 mb-6">
+    Contact us! We will be happy to help you
+  </p>
+
+  <div className="flex justify-center">
+    <VisitButton
+      label="Request Demo"
+      isOn={onStates[10]}
+      onClick={() => handleToggles(10)}
+      iconOn={whitescroll.src}
+      iconOff={blackscroll.src}
+    />
+  </div>
+</div>
+
       </section>
 
       
